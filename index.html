@@ -70,7 +70,7 @@
       onInitialise: function (status) {
         var type = this.options.type;
         var didConsent = this.hasConsented();
-        if (type == 'opt-in' && didConsent) {
+        if (didConsent) {
           initGA();
         }
         if (type == 'opt-out' && !didConsent) {
@@ -80,7 +80,7 @@
       onStatusChange: function(status, chosenBefore) {
         var type = this.options.type;
         var didConsent = this.hasConsented();
-        if (type == 'opt-in' && didConsent) {
+        if (didConsent) {
           initGA();
         }
         if (type == 'opt-out' && !didConsent) {
