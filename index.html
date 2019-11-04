@@ -3,11 +3,13 @@
   <head>
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-151494233-1"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+      function initGA() {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
 
-      gtag('config', 'UA-151494233-1');
+        gtag('config', 'UA-151494233-1');
+      }
     </script>
 
     <meta charset='utf-8'>
@@ -19,6 +21,7 @@
     <meta property="og:locale" content="en_US" />
     <meta name="description" content="TDD Cheat Sheet based on Kent Beck’s “Test Driven Development by Examples”" />
     <meta property="og:description" content="TDD Cheat Sheet based on Kent Beck’s “Test Driven Development by Examples”" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />
     <link rel="canonical" href="https://acarbone.github.io/TDD-Cheat-Sheet/" />
     <meta property="og:url" content="https://acarbone.github.io/TDD-Cheat-Sheet/" />
     <meta property="og:site_name" content="TDD-Cheat-Sheet" />
@@ -49,6 +52,52 @@
       </div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" data-cfasync="false"></script>
+    <script>
+    window.cookieconsent.initialise({
+      "palette": {
+        "popup": {
+          "background": "#edeff5",
+          "text": "#838391"
+        },
+        "button": {
+          "background": "#4b81e8"
+        }
+      },
+      "theme": "edgeless",
+      "position": "bottom-right",
+      "type": "opt-out",
+      onInitialise: function (status) {
+        var type = this.options.type;
+        var didConsent = this.hasConsented();
+        if (type == 'opt-in' && didConsent) {
+          initGA();
+        }
+        if (type == 'opt-out' && !didConsent) {
+        // disable cookies
+        }
+      },
+      onStatusChange: function(status, chosenBefore) {
+        var type = this.options.type;
+        var didConsent = this.hasConsented();
+        if (type == 'opt-in' && didConsent) {
+          initGA();
+        }
+        if (type == 'opt-out' && !didConsent) {
+        // disable cookies
+        }
+      },
+      onRevokeChoice: function() {
+        var type = this.options.type;
+        if (type == 'opt-in') {
+        // disable cookies
+        }
+        if (type == 'opt-out') {
+          initGA();
+        }
+      }
+    });
+    </script>
 
   </body>
 </html>
