@@ -1,2 +1,0 @@
-![Image](cheat-sheet.png)
-
