@@ -55,26 +55,23 @@
     <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" data-cfasync="false"></script>
     <script>
     window.cookieconsent.initialise({
-      "palette": {
-        "popup": {
-          "background": "#edeff5",
-          "text": "#838391"
+      palette: {
+        popup: {
+          background: "#edeff5",
+          text: "#838391"
         },
-        "button": {
-          "background": "#4b81e8"
+        button: {
+          background: "#4b81e8"
         }
       },
-      "theme": "edgeless",
-      "position": "bottom-right",
-      "type": "opt-out",
+      theme: "edgeless",
+      position: "bottom-right",
+      type: "opt-out",
       onInitialise: function (status) {
         var type = this.options.type;
         var didConsent = this.hasConsented();
         if (didConsent) {
           initGA();
-        }
-        if (type == 'opt-out' && !didConsent) {
-        // disable cookies
         }
       },
       onStatusChange: function(status, chosenBefore) {
@@ -83,15 +80,9 @@
         if (didConsent) {
           initGA();
         }
-        if (type == 'opt-out' && !didConsent) {
-        // disable cookies
-        }
       },
       onRevokeChoice: function() {
         var type = this.options.type;
-        if (type == 'opt-in') {
-        // disable cookies
-        }
         if (type == 'opt-out') {
           initGA();
         }
