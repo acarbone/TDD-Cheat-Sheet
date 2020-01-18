@@ -2,9 +2,9 @@
 
 _Inspired by "Test Driven Development by Examples" - Kent Beck_
 
-## What is TDD?
+## What is TDD?
 
-> Drive your development by tests to reach the goal of having clean code that works.
+Drive your development by tests to reach the goal of having clean code that works.
 
 **What should I do?**
 
