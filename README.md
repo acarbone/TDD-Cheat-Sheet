@@ -2,7 +2,6 @@
 
 _Inspired by "Test Driven Development by Examples" - Kent Beck_
 
-
 ## What is TDD?
 
 > Drive your development by tests to reach the goal of having clean code that works.
@@ -23,52 +22,52 @@ _Inspired by "Test Driven Development by Examples" - Kent Beck_
 
 ## Strategies to quickly go to green
 
-**Fake it**
+- **Fake it**
 Return constants and gradually replace them with working code.
 For cases when implementation is not really straightforward.
 
-**Obvious Implementation**
+- **Obvious Implementation**
 Directly write working code.
 In case implementation is straightforward.
 
-**Triangulation**
+- **Triangulation**
 Write more than one test to verify code is working.
 Generally to be used when being unsure of the correctness of the abstraction of the calculation.
 
 ## How our tests should be?
 
-**Fast**
+- **Fast**
 Our test suite has to perform as quickly as possible.
 
-**Isolated**
+- **Isolated**
 Success or failure for test A has to be irrelevant for test B coming after.
 No state must be maintained within the test suite.
 
-**Small**
+- **Small**
 If a test is testing too many things or complex code flows, it requires too much time for the red bar to become green, distracting you and slowing the implementation (and probably the cleanliness of the code).
 Difficult testing bits is a design issue and must be solved from a design standpoint.
 
-**Specific**
+- **Specific**
 Avoid ambiguous assertions that allow multiple results to pass the test.
 
 ## Testing Patterns
 
-**One to Many**
+- **One to Many**
 To test collection of objects, first write test for the single object, and then make it work for the collection as well.
 
-**Fixtures**
+- **Fixtures**
 Common objects needed by multiple tests: define fixtures as subclasses of TestCase.
 
-**Step Size**
+- **Step Size**
 You can use tiny steps to go forward with the code, or bigger steps depending on the context (todo things, complexity of the implementation, tiredness…).
 
-**Evident data**
+- **Evident data**
 In most cases it is possible to duplicate data within the test to clearly have an idea of how the implementation is expected to work.
 Unlikely errors to happen can be tested with “Crash Test Dummy” representing a particular case driving code to errors because of unexpected or weird inputs.
 
-Commenting out failing tests is **strictly forbidden**. They must be fixed instead.
+- Commenting out failing tests is **strictly forbidden**. They must be fixed instead.
 
-**Never remove a test** if, by removing it, your confidence decreases. If two tests has the same behavior, but they express two different cases, leave them both.
+- **Never remove a test** if, by removing it, your confidence decreases. If two tests has the same behavior, but they express two different cases, leave them both.
 
 ## Refactoring
 
